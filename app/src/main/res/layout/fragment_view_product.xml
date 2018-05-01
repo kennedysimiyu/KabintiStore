@@ -16,6 +16,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/White">
+
+        <!-- add a progress bar for usability when loading images -->
+        <ProgressBar
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/progress_bar"
+            android:layout_centerInParent="true"
+            android:visibility="@{productView.imageVisibility ? View.GONE : View.VISIBLE}"/>
         
         
         <LinearLayout
@@ -25,7 +33,8 @@
             android:orientation="vertical"
             android:padding="10dp"
             android:background="@color/White"
-            android:id="@+id/container_view">
+            android:id="@+id/container_view"
+            android:visibility="@{productView.imageVisibility ? View.VISIBLE : View.INVISIBLE}">
 
             <RelativeLayout
                 android:layout_width="match_parent"
