@@ -95,7 +95,8 @@
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:id="@+id/image"
-                    app:imageUrl="@{productView.product.image}"/>
+                    app:imageResource="@{productView.product.image}"
+                    app:requestListener="@{productView.customRequestListener}"/>
 
             </RelativeLayout>
 
