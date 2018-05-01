@@ -23,15 +23,25 @@ public class ViewProductFragment extends Fragment{
 
     // Data binding
     FragmentViewProductBinding mBinding;
+
+    //vars
+    private Product mProduct;
+// onCreate method retrieving an incoming product from the bundle
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceSate){
+        super.onCreate(savedInstanceSate);
+        Bundle bundle = this.getArguments();
+        if(bundle != null) {
+            mProduct = bundle.getParcelable("intent_product");
+        }
+    }
     
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mBinding = FragmentViewProductBinding.inflate(inflater);
-        
-        Products products = new Products();
-        mBinding.setProduct(products.PRODUCTS[0]);
-    
+
+        mBinding.setProduct(mProduct);
         mBinding.setQty(1);
 
         return mBinding.getRoot();

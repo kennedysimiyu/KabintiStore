@@ -6,9 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import kennedysimiyu.com.KabintiStore.databinding.ActivityMainBinding;
+import kennedysimiyu.com.KabintiStore.models.Product;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements IMainActivity {
 
     private static final String TAG = "MainActivity";
 
@@ -30,6 +31,22 @@ public class MainActivity extends AppCompatActivity {
         transaction.replace(R.id.main_container, fragment, getString(R.string.fragment_main));
         transaction.commit();
 
+    }
+
+// implementing the IMainactivity interface on the main activity
+    @Override
+    public void inflateViewProductFragment(Product product) {
+        // instantiating product fragment
+        ViewProductFragment fragment = new ViewProductFragment();
+
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(getString(R.string.intent_product), product);
+        fragment.setArguments(bundle);
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.main_container, fragment, getString(R.string.fragment_view_product));
+        transaction.addToBackStack(getString(R.string.fragment_view_product));
+        transaction.commit();
     }
 }
 
