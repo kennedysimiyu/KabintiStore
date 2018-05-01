@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kennedysimiyu.com.KabintiStore.BR;
+import kennedysimiyu.com.KabintiStore.IMainActivity;
 import kennedysimiyu.com.KabintiStore.R;
 import kennedysimiyu.com.KabintiStore.databinding.ProductItemBinding;
 import kennedysimiyu.com.KabintiStore.models.Product;
@@ -47,11 +48,14 @@ public class ProductsAdapter extends  RecyclerView.Adapter<ProductsAdapter.Bindi
         return new BindingHolder(binding.getRoot());
     }
 
+    // adding the IMainactivity interface to the view
     @Override
     public void onBindViewHolder(BindingHolder holder, int position) {
         Product product = mProducts.get(position);
         holder.binding.setProduct(product);
+        holder.binding.setIMainActivity((IMainActivity) mContext);
 //        holder.binding.setVariable(BR.product, product);
+
         holder.binding.executePendingBindings();
     }
 
