@@ -8,9 +8,6 @@
         <variable
             name="productView"
             type="kennedysimiyu.com.KabintiStore.ProductViewModel"/>
-        <variable
-            name="qty"
-            type="int"/>
 
     </data>
 
@@ -142,7 +139,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="12sp"
                     android:textColor="@color/Black"
-                    android:text="@{StringUtil.getQuantityString(qty)}"
+                    android:text="@{StringUtil.getQuantityString(productView.quantity)}"
                     android:id="@+id/quantity"/>
 
                 <ImageView
