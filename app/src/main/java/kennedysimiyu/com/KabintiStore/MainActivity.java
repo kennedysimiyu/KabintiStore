@@ -48,6 +48,24 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
         transaction.addToBackStack(getString(R.string.fragment_view_product));
         transaction.commit();
     }
+
+    // dialog implementation method for adding quantity
+    @Override
+    public void showQuantityDialog(){
+        Log.d(TAG, "showQuantityDialog: showing Quantity Dialog.");
+        ChooseQuantityDialog dialog = new ChooseQuantityDialog();
+        dialog.show(getSupportFragmentManager(), "Choose Quantity");
+    }
+    /*
+    setting quantity in view product fragment
+     */
+    @Override
+    public void setQuantity(int quantity) {
+        Log.d(TAG, msg: "selectQuantity: selected quantity: " + quantity);
+
+
+    }
+
 }
 
 

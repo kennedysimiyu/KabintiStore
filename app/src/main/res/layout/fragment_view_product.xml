@@ -141,6 +141,7 @@
                 android:background="@drawable/grey_rounded_button"
                 android:layout_marginTop="13dp"
                 android:id="@+id/quantity_button"
+                android:onClick="@{() -> iMainActivity.showQuantityDialog()}"
                 >
 
              
